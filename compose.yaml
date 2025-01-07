@@ -1,0 +1,27 @@
+services:
+    nginx:
+        container_name: nginx
+        build:
+            context: nginx
+        networks: 
+            - backend-network
+        ports:
+            - "80:80"
+        volumes:
+            - type: bind
+              source: ${PWD}/www
+              target: /usr/share/nginx/html
+        links:
+            - php
+
+    # php:
+    #     container_name: php8.3
+    #     build:
+    #         context: php/8.3
+    #     networks: 
+    #         - backend-network
+    #     restart: unless-stopped
+
+
+networks:
+    backend-network:

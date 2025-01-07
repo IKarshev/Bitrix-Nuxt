@@ -1,0 +1,4 @@
+FROM nginx:stable-alpine3.20-slim
+
+# USER nginx;
+COPY nginx.conf /etc/nginx/nginx.conf
