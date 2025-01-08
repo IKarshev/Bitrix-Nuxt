@@ -10,18 +10,24 @@ services:
         volumes:
             - type: bind
               source: ${PWD}/www
-              target: /usr/share/nginx/html
+              target: /var/www
         links:
             - php
+        restart: unless-stopped
 
-    # php:
-    #     container_name: php8.3
-    #     build:
-    #         context: php/8.3
-    #     networks: 
-    #         - backend-network
-    #     restart: unless-stopped
-
+    php:
+        container_name: php8.3
+        build:
+            context: php/8.3
+        networks: 
+            - backend-network
+        volumes:
+            - type: bind
+              source: ${PWD}/www
+              target: /var/www
+        ports:
+            - "9000:9000"
+        restart: unless-stopped
 
 networks:
     backend-network:
