@@ -29,5 +29,47 @@ services:
             - "9000:9000"
         restart: unless-stopped
 
+    mysql:
+        container_name: db
+        build:
+            context: mysql/8.0
+        volumes:
+            - db:/var/lib/mysql
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_DATABASE: bitrix
+            MYSQL_USER: bitrix
+            MYSQL_PASSWORD: 123
+            MYSQL_ROOT_PASSWORD: 123
+            TZ: Europe/Moscow
+        command: mysqld --user=root --sql-mode=""
+        networks:
+            - backend-network
+        stdin_open: true
+        tty: true
+        restart: unless-stopped
+
+    frontend:
+        container_name: frontend
+        build:
+            context: .
+            dockerfile: frontend/Dockerfile
+        ports:
+            - "3000:3000"
+        networks: 
+            - frontend-network
+        volumes:
+            - type: bind
+              source: ${PWD}/www/frontend/app
+              target: /web
+            - node_modules:/web/node_modules  # Используем том для node_modules, чтобы они не перезаписывались
+        restart: unless-stopped
+
 networks:
     backend-network:
+    frontend-network:
+
+volumes:
+    db:
+    node_modules:

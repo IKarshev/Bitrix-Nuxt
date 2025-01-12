@@ -1,0 +1,13 @@
+FROM node:22-alpine3.21
+
+ENV APP_ROOT /web
+
+WORKDIR ${APP_ROOT}
+
+COPY ./www/frontend/app/package*.json ./
+# ADD . ${APP_ROOT}
+
+RUN npm ci
+RUN npm install
+
+CMD ["npm", "run", "dev"]
