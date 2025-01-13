@@ -5,6 +5,8 @@ services:
             context: nginx
         networks: 
             - backend-network
+        profiles:
+            - backend
         ports:
             - "80:80"
         volumes:
@@ -21,10 +23,13 @@ services:
             context: php/8.3
         networks: 
             - backend-network
+        profiles:
+            - backend
         volumes:
-            - type: bind
-              source: ${PWD}/www
-              target: /var/www
+            - ${PWD}/www:/var/www
+            # - type: bind
+            #   source: ${PWD}/www
+            #   target: /var/www
         ports:
             - "9000:9000"
         restart: unless-stopped
@@ -46,6 +51,8 @@ services:
         command: mysqld --user=root --sql-mode=""
         networks:
             - backend-network
+        profiles:
+            - backend
         stdin_open: true
         tty: true
         restart: unless-stopped
@@ -59,11 +66,17 @@ services:
             - "3000:3000"
         networks: 
             - frontend-network
+        profiles:
+            - frontend
         volumes:
             - type: bind
               source: ${PWD}/www/frontend/app
               target: /web
-            - node_modules:/web/node_modules  # Используем том для node_modules, чтобы они не перезаписывались
+            - node_modules:/web/node_modules
+        links:
+            - nginx
+            - php
+            - mysql
         restart: unless-stopped
 
 networks:
