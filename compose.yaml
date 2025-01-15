@@ -5,8 +5,7 @@ services:
             context: nginx
         networks: 
             - backend-network
-        profiles:
-            - backend
+            - frontend-network
         ports:
             - "80:80"
         volumes:
@@ -23,13 +22,8 @@ services:
             context: php/8.3
         networks: 
             - backend-network
-        profiles:
-            - backend
         volumes:
             - ${PWD}/www:/var/www
-            # - type: bind
-            #   source: ${PWD}/www
-            #   target: /var/www
         ports:
             - "9000:9000"
         restart: unless-stopped
@@ -51,8 +45,6 @@ services:
         command: mysqld --user=root --sql-mode=""
         networks:
             - backend-network
-        profiles:
-            - backend
         stdin_open: true
         tty: true
         restart: unless-stopped
