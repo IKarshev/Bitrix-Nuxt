@@ -1,0 +1,6 @@
+# .dockerignore
+/www/frontend/.nuxt
+/www/frontend/.output
+/www/frontend/node_modules
+/www/frontend/.gitignore
+/www/frontend/README.md

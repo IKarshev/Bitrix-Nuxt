@@ -53,7 +53,7 @@ services:
         container_name: frontend
         build:
             context: .
-            dockerfile: frontend/Dockerfile
+            dockerfile: frontend/dockerfile
         ports:
             - "3000:3000"
         networks: 
@@ -62,7 +62,7 @@ services:
             - frontend
         volumes:
             - type: bind
-              source: ${PWD}/www/frontend/app
+              source: ${PWD}/www/frontend
               target: /web
             - node_modules:/web/node_modules
         links:
