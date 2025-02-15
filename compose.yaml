@@ -49,6 +49,28 @@ services:
         tty: true
         restart: unless-stopped
 
+    rabbitmq:
+        container_name: rabbitmq
+        build:
+            context: rabbitmq
+        ports:
+            - "15672:15672"
+        networks: 
+            - frontend-network
+            - backend-network
+        links:
+            - nginx
+            - php
+            - mysql
+        environment:
+            - RABBITMQ_DEFAULT_USER=rmuser
+            - RABBITMQ_DEFAULT_PASS=rmpassword
+            - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+        hostname: rabbitmq
+        volumes:
+            - rabbitmq:/var/lib/rabbitmq
+        restart: always
+
     frontend:
         container_name: frontend
         build:
@@ -58,8 +80,6 @@ services:
             - "3000:3000"
         networks: 
             - frontend-network
-        profiles:
-            - frontend
         volumes:
             - type: bind
               source: ${PWD}/www/frontend
@@ -70,6 +90,7 @@ services:
             - php
             - mysql
         restart: unless-stopped
+        tmpfs: /tmp
 
 networks:
     backend-network:
@@ -78,3 +99,4 @@ networks:
 volumes:
     db:
     node_modules:
+    rabbitmq:
