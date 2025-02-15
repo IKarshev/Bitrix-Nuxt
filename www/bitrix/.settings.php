@@ -1,5 +1,6 @@
 <?php
-return array (
+
+return array (
   'cache_flags' => 
   array (
     'value' => 
@@ -37,10 +38,10 @@
     array (
       'default' => 
       array (
-        'host' => 'db',
-        'database' => 'bitrix',
-        'login' => 'bitrix',
-        'password' => '123',
+        'host' => '',
+        'database' => '',
+        'login' => '',
+        'password' => '',
         'options' => 2.0,
         'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
       ),

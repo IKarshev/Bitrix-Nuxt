@@ -1,6 +1,6 @@
 services:
     nginx:
-        container_name: ${PROJECT_NAME}_nginx
+        container_name: nginx
         build:
             context: nginx
         networks: 
@@ -17,7 +17,7 @@ services:
         restart: unless-stopped
 
     php:
-        container_name: ${PROJECT_NAME}_php8.3
+        container_name: php8.3
         build:
             context: php/8.3
         networks: 
@@ -29,7 +29,7 @@ services:
         restart: unless-stopped
 
     mysql:
-        container_name: ${PROJECT_NAME}_db
+        container_name: db
         build:
             context: mysql/8.0
         volumes:
@@ -50,7 +50,7 @@ services:
         restart: unless-stopped
 
     rabbitmq:
-        container_name: ${PROJECT_NAME}_rabbitmq
+        container_name: rabbitmq
         build:
             context: rabbitmq
         ports:
@@ -72,7 +72,7 @@ services:
         restart: always
 
     frontend:
-        container_name: ${PROJECT_NAME}_frontend
+        container_name: frontend
         build:
             context: .
             dockerfile: frontend/dockerfile
