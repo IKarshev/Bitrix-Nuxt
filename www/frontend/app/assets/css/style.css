@@ -1,0 +1,144 @@
+/* -------------------------------------------font-styles------------------------------------------- */
+@font-face {
+	font-family: 'Winston';
+	src: url('/fonts/Winston/Winston-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: 400;
+}
+@font-face {
+	font-family: 'Winston';
+	src: url('/fonts/Winston/Winston-ExtraLight.ttf') format('truetype');
+	font-weight: 300;
+}
+@font-face{
+	font-family: 'Asket Extended';
+	src: url('/fonts/AsketExtended/Asket\ Extended\ Light.ttf') format('truetype');
+	font-weight: 300;
+}
+
+/* -------------------------------------------reset-styles------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus, :active{outline: none;}
+a:focus, a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display:none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none; color: inherit;}
+a:hover{text-decoration: none;}
+ul li{list-style-type: none;}
+
+h1,h2, h3, h4, h5, h6{font-style: inherit;}
+
+/* -------------------------------------------main-styles------------------------------------------- */
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	font-family: 'Winston', sans-serif;
+	background-color: #fff;
+	color: rgba(96, 115, 129, 1);
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 19.6px;
+}
+.no-scroll{
+	overflow: hidden;
+}
+.layout{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header{
+	flex-shrink: 0;
+}
+
+main{
+	margin-top: -100px;
+	flex-grow: 1;
+}
+
+footer{
+	background-color: rgba(29, 51, 74, 1);
+	flex-shrink: 0;
+}
+
+.container{
+	max-width: 1754px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+h1{
+	font-family: 'Asket Extended', sans-serif;
+	font-size: 48px;
+	line-height: 1.1;
+	color: rgba(29, 51, 74, 1);
+	font-weight: 300;
+	letter-spacing: -0.01em;
+}
+h2{
+	font-family: 'Asket Extended', sans-serif;
+	font-size: 32px;
+	font-weight: 300;
+	line-height: 1.2;
+	margin-bottom: 12px;
+	color: rgba(29, 51, 74, 1);
+}
+h3{
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 15.4px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+button{
+	padding: 14px 71px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(29, 51, 74, 1);
+    text-transform: uppercase;
+	transition: opacity 0.3s ease-in-out;
+	white-space: nowrap;
+}
+button:hover{
+	opacity: 0.7;
+}
+
+
+@media (max-width: 600px){
+	h1{
+		font-size: 30px;
+	}
+	h2{
+		font-size: 25px;
+	}
+	h3{
+		font-size: 12px;
+	}
+}

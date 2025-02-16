@@ -1,0 +1,111 @@
+.basket-section{
+    padding: 109px 0 118px;
+    overflow: hidden;
+}
+.basket-section .container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.basket-content{
+    padding-right: 50px;
+}
+.basket-content h1{
+    margin-bottom: 14px;
+}
+.basket-content p{
+    font-style: 16px;
+}
+.basket-content form h2{
+    margin-top: 44px;
+    margin-bottom: 0;
+}
+.back-btn{
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(29, 51, 74, 1);
+    border: 1px solid rgba(29, 51, 74, 1);
+}
+.basket-content form span{
+    display: block;
+    padding-left: 0;
+    margin-top: 16px;
+}
+.orders{
+    padding: 65px 0px 93px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    position: relative;
+}
+.orders-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1000%;
+    background-color: rgba(29, 51, 74, 1);
+    z-index: -1;
+}
+.order{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 43px;
+}
+.order-content{
+    display: flex;
+    gap: 25px;
+}
+.order-content img{
+    width: 80px;
+    height: 107px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 1)
+}
+.order-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 107px;
+}
+.order-info h3{
+    color: rgba(255, 255, 255, 1);
+    font-weight: 300;
+    margin-bottom: 3px;
+}
+.order-info .price{
+    margin-top: auto;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 1);
+}
+.order-total{
+    color:rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-weight: 400;
+}
+.order-total span{
+    font-size: 22px;
+    padding-left: 14px;
+}
+
+@media (max-width: 850px){
+    .basket-section{
+        padding-top: 0;
+    }
+    .basket-section .container{
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+    .orders{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: -15px;
+        padding: 31px 0px 41px 15px;
+    }
+    .order svg{
+        align-self: flex-end;
+    }
+    .basket-content{
+        padding-right: 0;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,106 @@
+.about-page{
+    padding: 310px 0 410px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.about-page .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+
+}
+.about-page p{
+    font-family: 'Winston';
+    color: rgba(255, 255, 255, 1);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 31.37px;
+    letter-spacing: 0.59em;
+}
+
+.about-page_text{
+    text-align: center;
+    padding: 110px 0 105px;
+}
+.about-page_text .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.about-page_text h1{
+    max-width: 350px;
+    margin-bottom: 6px;
+}
+.about-page_text span{
+    font-size: 16px;
+    font-weight: 400;
+}
+.about-page_text p{
+    max-width: 1044px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+}
+.about-page_text i{
+    font-size: 16px;
+    color:rgba(29, 51, 74, 1);
+}
+.about-page_imgs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.about-page_imgs img{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+@media (max-width: 800px){
+    .about-page{
+        padding: 310px 15px 410px;
+    }
+    .about-page svg{
+        width: 90%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 600px){
+    .about-page .container{
+        gap: 20px;
+    }
+    .about-page p{
+        font-size: 15px;
+        line-height: 18.75px;
+    }
+
+    .about-page_text{
+        padding: 36px 0 34px;
+        text-align: left;
+    }
+    .about-page_text .container{
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .about-page_text p{
+        text-align: left;
+        font-size: 14px;
+        line-height: 19.6px;
+        margin-top: 20px;
+    }
+    .about-page_text i{
+        color: rgba(181, 197, 208, 1);
+        font-style: normal;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .about-page_imgs{
+        grid-template-columns: 1fr;
+    }
+}

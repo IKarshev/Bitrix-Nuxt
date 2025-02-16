@@ -1,0 +1,54 @@
+.contacts-section{
+    position: relative;
+}
+.contacts-section .container{
+    padding: 140px 15px 159px;
+}
+.contacts-content{
+    width: 40%;
+    padding-right: 50px;
+}
+.contacts-section h1{
+    margin-bottom: 38px;
+}
+.contacts-section .contacts{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 47px;
+}
+.contacts-section .contacts a{
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: rgba(29, 51, 74, 1);
+}
+.contacts-section .mail{
+    border-bottom: none;
+}
+.contacts-section .mail span{
+    text-decoration: underline;
+}
+.contacts-section .card-img{
+    right: 0;
+    left: unset;
+}
+
+@media (max-width: 800px){
+    .contacts-section .container{
+        padding-top: 0;
+        padding-bottom: 50px;
+    }
+    .contacts-content{
+        width: 100%;
+        padding-right: 0;
+    }
+    .contacts-wrapper{
+        max-width: 504px;
+        margin: 0 auto;
+    }
+    .contacts-section .card-img{
+        height: 624px;
+    }
+}
